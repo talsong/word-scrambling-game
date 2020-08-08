@@ -19,7 +19,7 @@ def scramble_word(word):
 
 word_file = "http://www.desiquintans.com/downloads/nounlist/nounlist.txt" #online compilation of common nouns
 reader = urllib.request.urlopen(word_file)
-long_text = reader.read()
+long_text = reader.read().decode()
 word_bank = long_text.splitlines()
 
 rand_word = random.choice(word_bank)
