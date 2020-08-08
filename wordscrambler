@@ -23,3 +23,21 @@ long_text = reader.read().decode()
 word_bank = long_text.splitlines()
 
 rand_word = random.choice(word_bank)
+
+def guessing_game():
+    word = rand_word.lower()
+    print("Welcome to Word Scrambler! \nYou have 3 tries to guess the correct word")
+    print("type in 'stop game' at any point in order to exit the game")
+    print("your word is: ", scramble_word(word))
+    for tries in range(3):
+        guess = input("Try #" + str(3-tries) + ": ")
+        if guess.lower() == "stop game":
+            print("Thanks for playing!")
+            break
+        elif guess.lower() != word:
+            print("Try again!")
+        else:
+            print("Congratulations you guessed the word!")
+            return
+    if tries == 2:
+        print("Sorry, you're out of tries!")
