@@ -26,6 +26,9 @@ rand_word = random.choice(word_bank)
 
 def guessing_game():
     word = rand_word.lower()
+    scrambled = scramble_word(word)
+    while scrambled == word: #check to make sure that the word is not the same
+        scrambled = scramble_word(word)
     print("Welcome to Word Scrambler! \nYou have 3 tries to guess the correct word")
     print("type in 'stop game' at any point in order to exit the game")
     print("your word is: ", scramble_word(word))
