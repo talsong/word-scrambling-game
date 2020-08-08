@@ -1,0 +1,25 @@
+import random
+import urllib.request
+
+def create_permutation(n):
+    perm = [-1]*n
+    cnt = n
+    while cnt:
+        index = random.randint(0, n-1)
+        if perm[index] == -1:
+            perm[index] = cnt - 1
+            cnt -= 1
+    return perm
+
+def scramble_word(word):
+    lst = create_permutation(len(word))
+    for i in range(len(lst)):
+        lst[i] = word[lst[i]]
+    return ' '.join(lst)
+
+word_file = "http://www.desiquintans.com/downloads/nounlist/nounlist.txt" #online compilation of common nouns
+reader = urllib.request.urlopen(word_file)
+long_text = reader.read()
+word_bank = long_text.splitlines()
+
+rand_word = random.choice(word_bank)
